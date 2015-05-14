@@ -1,12 +1,12 @@
-var produto = {nome:"sapato", preco:150};
-
-var formulaImpostoA = function(preco){ return preco*0.1; };
-var formulaImpostoB = function(preco){ return preco*0.2; };
-
-var calcularPreco = function(produto, formulaImposto){
-	return produto.preco + formulaImposto(produto.preco)
+var getIdade = function(extra){
+	console.log(arguments);
+	return this.idade + extra;
 };
-
-resultado = calcularPreco(produto, formulaImpostoB);
-
-console.log(resultado);
+var pessoa = {
+	nome: "Pedro",
+	idade: 20,
+	getIdade: getIdade
+};
+console.log(pessoa.getIdade(2, 3, 4));
+console.log(getIdade.call(pessoa, 2, 3, 4));
+console.log(getIdade.apply(pessoa, [2, 3, 4]));
